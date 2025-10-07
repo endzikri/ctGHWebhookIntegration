@@ -4,7 +4,8 @@ trigger:
 pr:
  autoCancel: true
  
-pool: server
+pool: 
+  vmImage: ubuntu-latest
  
 stages:
 - stage: stage1

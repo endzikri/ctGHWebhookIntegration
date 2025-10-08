@@ -1,26 +1,45 @@
+# trigger:
+# - main
+ 
+# pr:
+#  autoCancel: true
+ 
+# pool: 
+#   vmImage: ubuntu-latest
+ 
+# stages:
+# - stage: stage1
+#   jobs:
+#   - job: Job1
+#     steps:
+#     - task: PowerShell@2
+#       displayName: 'Sleep for 120 seconds'
+#       inputs:
+#         targetType: 'inline'
+#         script: |
+#           # PowerShell script to sleep for 120 seconds and print the seconds
+#           $totalSeconds = 120
+#           for ($i = 1; $i -le $totalSeconds; $i++) {
+#               Write-Host "Sleeping for $i seconds..."
+#               Start-Sleep -Seconds 1
+#           }
+#           Write-Host "Sleep completed!1"
+
 trigger:
 - main
  
 pr:
- autoCancel: true
+  autoCancel: true
  
-pool: 
+pool:
   vmImage: ubuntu-latest
  
-stages:
-- stage: stage1
-  jobs:
-  - job: Job1
-    steps:
-    - task: PowerShell@2
-      displayName: 'Sleep for 120 seconds'
-      inputs:
-        targetType: 'inline'
-        script: |
-          # PowerShell script to sleep for 120 seconds and print the seconds
-          $totalSeconds = 120
-          for ($i = 1; $i -le $totalSeconds; $i++) {
-              Write-Host "Sleeping for $i seconds..."
-              Start-Sleep -Seconds 1
-          }
-          Write-Host "Sleep completed!1"
+steps:
+- script: echo Hello, world!
+  displayName: 'Run a one-line script'
+ 
+- script: |
+    echo Add other tasks to build, test, and deploy your project.
+    echo See https://aka.ms/yaml
+    sleep 300
+  displayName: 'Run a multi-line script'

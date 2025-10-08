@@ -29,6 +29,9 @@ trigger:
 - main
  
 pr:
+  branches:
+    include:
+      - main
   autoCancel: true
  
 pool:
